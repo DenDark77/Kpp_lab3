@@ -17,7 +17,7 @@ const App = {
     },
 
     mounted() {
-        fetch('https://jsonplaceholder.typicode.com/todos/1')
+        fetch('https://reqres.in/api/products/3')
             .then(response => response.json())
             .then(json => {
                 for (const item of json) {
@@ -74,7 +74,7 @@ const App = {
                 this.valuePrice = '';
                 this.isAddingNewItem = false;
                 this.isSearchItems = true;
-                fetch(`'https://jsonplaceholder.typicode.com/posts/1'`, {
+                fetch('https://reqres.in/api/products/3', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -105,7 +105,7 @@ const App = {
 
         deleteItem(idx) {
 
-            fetch('https://jsonplaceholder.typicode.com/post/1', {
+            fetch('https://reqres.in/api/products/3', {
                     method: 'DELETE'
                 }).then(res => res.json())
                 .then(res => console.log(res))
