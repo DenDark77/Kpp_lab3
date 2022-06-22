@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Тахі</title>
 </head>
+
 <body>
     <div id="app">
         <div class="container" v-if="!isAddingNewItem">
-            <button class="btn btn-add-new-item" v-on:click="addNewItem" >add new item</button>
+            <button class="btn btn-add-new-item" v-on:click="addNewItem">Додати нову по'їздку</button>
         </div>
         <div class="container" v-else>
             <div class="input-palce">
-                <span>Name</span><input class="input input-name" v-on:input="inputNameChange" type="text" v-bind:placeholder="placeholderName" v-bind:value="valueName">
-                <span>Desctiption</span><input class="input input-text" v-on:input="inputTextChange" type="text" v-bind:placeholder="placeholderText" v-bind:value="valueText">
-                <span>Price</span><input class="input input-price" v-on:input="inputPriceChange" type="text" v-bind:placeholder="placeholderPrice" v-bind:value="valuePrice">
+                <span>Ім'я</span><input class="input input-name" v-on:input="inputNameChange" type="text" v-bind:placeholder="placeholderName" v-bind:value="valueName">
+                <span>Адреса</span><input class="input input-text" v-on:input="inputTextChange" type="text" v-bind:placeholder="placeholderText" v-bind:value="valueText">
+                <span>Ціна</span><input class="input input-price" v-on:input="inputPriceChange" type="text" v-bind:placeholder="placeholderPrice" v-bind:value="valuePrice">
             </div>
             <div>
-                <button class="btn btn-add" v-on:click="addNote">add</button>
+                <button class="btn btn-add" v-on:click="addNote">Додати</button>
             </div>
         </div>
         <div class="seacrh-block container" v-if="isSearchItems">
             <input class="input input-search-panel" v-on:input="inputSearchChange" type="text" v-bind:placeholder="placeholderSearch" v-bind:value="valueSearch">
-            <button class="btn btn-search" v-on:click="searchItem">find</button>
+            <button class="btn btn-search" v-on:click="searchItem">Знайти</button>
         </div>
         <div class="list" v-if="!isAddingNewItem">
             <ul>
@@ -51,19 +53,19 @@
                     <div class="settings">
                         <div class="edit">
                             <button class="set-btn btn-save" v-on:click="enterEdit(idx)" v-if="myNote.isActiveInput">
-                                save
+                                Зберегти
                             </button>
                             <button class="set-btn btn-edit" v-on:click="editItem(idx)" v-else>
-                                edit
+                                Редагувати
                             </button>
                         </div>
                         <div class="delete">
                             <button class="set-btn btn-delete" v-on:click="deleteItem(idx)">
-                                delete
+                                Видалити
                             </button>
                         </div>
                     </div>
-                  
+
                 </li>
             </ul>
         </div>
@@ -71,4 +73,5 @@
     <script src="https://unpkg.com/vue@next"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

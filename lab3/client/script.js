@@ -17,11 +17,13 @@ const App = {
     },
 
     mounted() {
-        fetch('http://localhost:8000/api/item')
-        .then(response => response.json())
-        .then(json => {for (const item of json) {
-            this.notes.push(item)
-        }});
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then(response => response.json())
+            .then(json => {
+                for (const item of json) {
+                    this.notes.push(item)
+                }
+            });
     },
 
     methods: {
@@ -72,17 +74,17 @@ const App = {
                 this.valuePrice = '';
                 this.isAddingNewItem = false;
                 this.isSearchItems = true;
-                fetch(`http://localhost:8000/api/item`, {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(item)
-                  })
-                  .then((response) => response.json())
-                  .then(res => console.log(res))
+                fetch(`'https://jsonplaceholder.typicode.com/posts/1'`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(item)
+                    })
+                    .then((response) => response.json())
+                    .then(res => console.log(res))
 
-                
+
             }
 
         },
@@ -103,10 +105,10 @@ const App = {
 
         deleteItem(idx) {
 
-            fetch(`http://localhost:8000/api/item/${this.notes[idx]._id}`, {
-                method: 'DELETE'
-            }).then(res => res.json()) 
-            .then(res => console.log(res))
+            fetch('https://jsonplaceholder.typicode.com/post/1', {
+                    method: 'DELETE'
+                }).then(res => res.json())
+                .then(res => console.log(res))
 
             this.notes.splice(idx, 1);
         },
